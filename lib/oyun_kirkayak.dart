@@ -5,7 +5,6 @@ import 'package:arcade_motoru/kirkayak.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const kirkayakId = 'oyun-kirkayak';
 
@@ -88,7 +87,7 @@ final kirkayakConfig = GameConfig(
   rules: kirkayakRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => kirkayakRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => kirkayakRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintCent(c, s, p, t);
